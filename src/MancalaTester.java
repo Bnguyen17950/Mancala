@@ -3,5 +3,8 @@
  */
 public class MancalaTester
 {
-
+    public static void main(String[] args)
+    {
+        View newView = new View();
+    }
 }
