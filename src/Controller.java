@@ -11,7 +11,6 @@ public class Controller extends JFrame
     final JButton newButton;
     final private JFrame frame;
     final Container pane;
-    final JButton pit;
 
     public Controller()
     {
@@ -21,6 +20,6 @@ public class Controller extends JFrame
         pane.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         newButton = new JButton();
-        newButton.add(Pits);
+        //newButton.add(Pits);
     }
 }
