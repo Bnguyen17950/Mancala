@@ -17,7 +17,6 @@ public class View extends JFrame
     final JLabel PitLabelsB;
     final Model newModel;
 
-
     public View()
     {
         //prepare frame
@@ -27,11 +26,6 @@ public class View extends JFrame
         pane.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         newModel = new Model();
-        final AllShapes MancalaPit1 = new MancalaPits(20, 200, 100);
-        ShapeIcon icon = new ShapeIcon(MancalaPit1, 100, 245);
-        final JLabel label = new JLabel(icon);
-        frame.add(label);
-
 
         //Create controls
         JButton A1Button = new JButton();
@@ -40,6 +34,7 @@ public class View extends JFrame
         JButton A4Button = new JButton();
         JButton A5Button = new JButton();
         JButton A6Button = new JButton();
+
         JButton B1Button = new JButton();
         JButton B2Button = new JButton();
         JButton B3Button = new JButton();
@@ -72,23 +67,22 @@ public class View extends JFrame
 
 
 
-
         //setBounds
-        pnlMancala.setBounds(200, 0, 800, 500);
-        PitLabelsA.setBounds(200, 150, 600, 350);
-        PitLabelsB.setBounds(200, 80, 600, 250);
-        A1Button.setBounds(150, 260, 100, 40);
-        A2Button.setBounds(250, 260, 100, 40);
-        A3Button.setBounds(350, 260, 100, 40);
-        A4Button.setBounds(450,260,100,40);
-        A5Button.setBounds(550,260,100,40);
-        A6Button.setBounds(650,260,100,40);
-        B1Button.setBounds(150,220,100,40);
-        B2Button.setBounds(250,220,100,40);
-        B3Button.setBounds(350,220,100,40);
-        B4Button.setBounds(450,220,100,40);
-        B5Button.setBounds(550,220,100,40);
-        B6Button.setBounds(650,220,100,40);
+        pnlMancala.setBounds(0, 0, 1200, 600);
+        PitLabelsA.setBounds(250, 150, 600, 350);
+        PitLabelsB.setBounds(250, 80, 600, 250);
+        A1Button.setBounds(200,260,100,40);
+        A2Button.setBounds(300,260,100,40);
+        A3Button.setBounds(400,260,100,40);
+        A4Button.setBounds(500,260,100,40);
+        A5Button.setBounds(600,260,100,40);
+        A6Button.setBounds(700,260,100,40);
+        B1Button.setBounds(200,220,100,40);
+        B2Button.setBounds(300,220,100,40);
+        B3Button.setBounds(400,220,100,40);
+        B4Button.setBounds(500,220,100,40);
+        B5Button.setBounds(600,220,100,40);
+        B6Button.setBounds(700,220,100,40);
 
 
 
