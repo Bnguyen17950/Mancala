@@ -1,32 +1,26 @@
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 /**
  * Created by bryannguyen on 4/13/15.
  */
-public class Controller extends View
+public class Controller extends JFrame
 {
-    final JLabel Player1;
-    final JLabel Player2;
-    final View board;
-    private Model m;
+    //update information (Contains all the listeners)
+    // Contains buttons
+    final JButton newButton;
+    final private JFrame frame;
+    final Container pane;
+    final JButton pit;
+
     public Controller()
     {
-        Player1 = new JLabel("Player 1 -->");
-        Player2 = new JLabel("Player 2 -->");
-        m = new Model();
-        board = new View();
-
-        m.addActionListener(new ChangeListener()
-        {
-            @Override
-            public void stateChanged(ChangeEvent changeEvent)
-            {
-                board.showPlayersTurn();
-            }
-        });
+        frame = new JFrame("Mancala Board");
+        frame.setSize(500,500);
+        pane = frame.getContentPane();
+        pane.setLayout(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        newButton = new JButton();
+        newButton.add(Pits);
     }
 }
