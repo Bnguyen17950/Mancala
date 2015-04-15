@@ -1,4 +1,14 @@
+import javax.swing.event.ChangeListener;
+
 public class Model
 {
-	// Do stuff
+	public Model()
+    {
+
+    }
+    public void addActionListener(ChangeListener c)
+{
+
+}
+// Do stuff
 }
