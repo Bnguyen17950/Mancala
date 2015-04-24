@@ -162,6 +162,7 @@ public class Controller
 	
 	public int getCounter()
 	{
+        //Bryan saw this
 		return counter;
 	}
 	
