@@ -10,6 +10,7 @@ import javax.swing.JButton;
  */
 public class Controller
 {
+    /*
     //update information (Contains all the listeners)
 	private int counter;
     private Model model;
@@ -165,5 +166,5 @@ public class Controller
         //Bryan saw this
 		return counter;
 	}
-	
+	*/
 }
