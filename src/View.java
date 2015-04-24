@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * update kevin 
+ * update kevin
  * Created by bryannguyen on 4/3/15.
  */
 public class View extends JFrame
@@ -25,14 +25,14 @@ public class View extends JFrame
         private JButton mancalaB;
         private JLabel mancalaPlayerA;
         private JLabel mancalaPlayerB;
-        
+
         private ArrayList<JButton> AJButtons = new ArrayList<JButton>();
         private ArrayList<JButton> BJButtons = new ArrayList<JButton>();
         private ArrayList<JButton> mancala = new ArrayList<JButton>();
         private ArrayList<JLabel> playerLabel = new ArrayList<JLabel>();
         private ArrayList<JLabel> pitLabel = new ArrayList<JLabel>();
         private ArrayList<JButton> allButtons = new ArrayList<JButton>();
-         
+
         public View() {
             //prepare frame
             frame = new JFrame("Mancala Board");
@@ -41,8 +41,8 @@ public class View extends JFrame
             pane.setLayout(null);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             pnlMancala = new JPanel(null);
-            
-            
+
+
             //creates mancala B and mancala A
             int x = 80;
             for(int i = 0; i < 2; i++){
@@ -50,9 +50,9 @@ public class View extends JFrame
             	mancala.get(i).setBounds(x,100,60,300);
             	x += 780;
             	pnlMancala.add(mancala.get(i));
-            	
+
             }
-            
+
             //creates the label for the mancalas
             mancalaPlayerA = new JLabel("Player A");
             mancalaPlayerB = new JLabel("Player B");
@@ -64,8 +64,8 @@ public class View extends JFrame
             	x += 780;
             	pnlMancala.add(playerLabel.get(i));
             }
-            
-            
+
+
             //creates row of A pits
             x = 200;
             for(int i = 0; i < 6; i++){
@@ -77,8 +77,8 @@ public class View extends JFrame
             	AJButtons.get(i).setName(buttonNumber);
 //            	AJButtons.get(i).setText(buttonNumber);
             }
-         
-           
+
+
             //creates row of B pits
              x = 700;
             for(int i = 0; i < 6; i++){
@@ -90,7 +90,7 @@ public class View extends JFrame
 //            	BJButtons.get(i).setText(buttonNumber);
             	pnlMancala.add(BJButtons.get(i));
             }
-            
+
             //inserts all the buttons into one arraylist
             for(int i = 0; i < AJButtons.size(); i++){
             	allButtons.add(AJButtons.get(i));
@@ -98,24 +98,24 @@ public class View extends JFrame
             for(int i = 0; i < BJButtons.size(); i++){
             	allButtons.add(BJButtons.get(i));
             }
-            
+
          // Creates labels for Player A's pits
             for(int i = 0; i < 6; i++)
             {
              final JLabel aLabel = new JLabel("A" + (i+1));
              pitLabel.add(aLabel);
-             
+
              int xCoord = AJButtons.get(i).getX() + AJButtons.get(i).getWidth() / 2;
              int yCoord = AJButtons.get(i).getY() + AJButtons.get(i).getHeight();
              aLabel.setBounds(xCoord, yCoord, AJButtons.get(i).getWidth(), AJButtons.get(i).getHeight()/2);
             }
-            
+
             // Creates labels for Player B's pits
             for(int i = 0; i < 6; i++)
             {
              final JLabel bLabel = new JLabel("B" + (6 - i));
              pitLabel.add(bLabel);
-             
+
              int xCoord = BJButtons.get(i).getX() + BJButtons.get(i).getWidth() / 2;
              int yCoord = BJButtons.get(i).getY() - BJButtons.get(i).getHeight() /2 ;
              bLabel.setBounds(xCoord, yCoord, BJButtons.get(i).getWidth(), BJButtons.get(i).getHeight()/2);
@@ -123,8 +123,8 @@ public class View extends JFrame
             for(JLabel label: pitLabel){
             	pnlMancala.add(label);
             }
-           
-            
+
+
             pnlMancala.setBounds(0, 0, 1200, 600);
             pnlMancala.setBorder(BorderFactory.createTitledBorder("Mancala"));
             pane.add(pnlMancala);
@@ -134,11 +134,12 @@ public class View extends JFrame
         public ArrayList<JButton> getPits(){
         	return allButtons;
         }
-        
-        public void addPitActionListener(ActionListener l){
+
+        public void addPitActionListener(ActionListener l)
+        {
         	for(JButton button: allButtons){
         		button.addActionListener(l);
         	}
         }
-       
+
     }
