@@ -15,7 +15,7 @@ public class Controller
     private Model model;
     private View view;
 
-    public Controller(Model model, View view)
+    public Controller(final Model model, final View view)
     {
      this.model = model;
      this.view = view;
@@ -150,7 +150,7 @@ public class Controller
 
         if(zerosFound == 6)
         {
-            gameOver = true;
+            boolean gameOver = true;
             if(model.getStonesInP1Mancala() > model.getStonesInP2Mancala())
                 System.out.println("Player 1 Wins");
             else if(model.getStonesInP2Mancala() > model.getStonesInP1Mancala())
