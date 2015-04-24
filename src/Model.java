@@ -168,9 +168,9 @@ public class Model
                 System.out.println("Draw Game");
         }
     }
-
     public static void main(String[] args)
     {
         Model test = new Model(2);
     }
+
 }
