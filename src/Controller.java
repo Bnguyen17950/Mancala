@@ -14,7 +14,7 @@ public class Controller
 	private int counter;
     private Model model;
     private View view;
-    
+
     public Controller(Model model, View view)
     {
      this.model = model;
