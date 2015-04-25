@@ -10,7 +10,7 @@ import javax.swing.JButton;
  */
 public class Controller
 {
-    /*
+//    /*
     //update information (Contains all the listeners)
 	private int counter;
     private Model model;
@@ -26,10 +26,16 @@ public class Controller
   
      this.view.addPitActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
-       String pitNumber = ((JButton) e.getSource()).getName();
+    	
+       String pitName = ((JButton) e.getSource()).getName(); //pitName A5, B1, etc
+       pickPitNumber(pitName); 
+       int pitNumber = pitIndex(pitName); //index of pitName. 0-11
+       int numOfStonesInPit = model.getStonesInPit(pitNumber); 
        
+       for(int i = 0; i < numOfStonesInPit; i++){
+    	   
+       }
        
-       pickPitNumber(pitNumber);
        
        ArrayList<JButton> allPits = view.getPits();
        int[] modelArray = model.getModelPits();
@@ -61,11 +67,16 @@ public class Controller
      return stones;
     }
 	
-    private void pickPitNumber(String pit)
-    {
-        int pitNumber = Integer.parseInt(pit.substring(1, 2)) - 1;
+    public int pitIndex(String pit){
+    	int pitNumber = Integer.parseInt(pit.substring(1, 2)) - 1;
         if(pit.substring(0, 1).equals("B"))
             pitNumber = pitNumber + 6;
+        return pitNumber;
+    }
+    
+    public void pickPitNumber(String pit)
+    {
+        int pitNumber = pitIndex(pit);
 		
 
         int stonesToPlace = model.getStonesInPit(pitNumber);
