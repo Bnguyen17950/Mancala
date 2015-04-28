@@ -24,24 +24,29 @@ public class Controller
      
      
   
-     this.view.addPitActionListener(new ActionListener(){
-      public void actionPerformed(ActionEvent e){
-    	
-       String pitName = ((JButton) e.getSource()).getName(); //pitName A5, B1, etc
-       pickPitNumber(pitName); 
-       int pitNumber = pitIndex(pitName); //index of pitName. 0-11
-       int numOfStonesInPit = model.getStonesInPit(pitNumber); 
-      
-       for(int i = 0; i < view.getAllButtons().size(); i++){
-    	   view.get(i).setText(model.getStonesInPit(i));
-    	   
-       }
-      
-    view.super.getMancala().get(0).setText(model.getStonesInP1Mancala()); //updating mancala1
-    view.super.getMancala().get(1).setText(model.getStonesInP2Mancala()); //updating mancala2
+     this.view.addPitActionListener(new ActionListener()
+     {
+         public void actionPerformed(ActionEvent e) {
+
+             String pitName = ((JButton) e.getSource()).getName(); //pitName A5, B1, etc
+             model.pickPitNumber(pitName);
+             int pitNumber = model.pitIndex(pitName); //index of pitName. 0-11
+             int numOfStonesInPit = model.getStonesInPit(pitNumber);
+
+             for (int i = 0; i < view.getAllButtons().size(); i++) {
+                 view.getAllButtons().get(i).setText(String.valueOf(model.getStonesInPit(i)));
+
+             }
+
+             view.getMancala().get(0).setText(String.valueOf(model.getStonesInP1Mancala())); //updating mancala1
+             view.getMancala().get(1).setText(String.valueOf(model.getStonesInP2Mancala())); //updating mancala2
+         }
+     });
+    }
+}
        
        
-       
+       /*
        ArrayList<JButton> allPits = view.getPits();
        int[] modelArray = model.getModelPits();
              for(int i =0; i < allPits.size(); i++){
@@ -176,11 +181,10 @@ public class Controller
                 System.out.println("Draw Game");
         }
     }
-	
+
 	public int getCounter()
 	{
         //Bryan saw this
 		return counter;
 	}
 	*/
-}

@@ -3,20 +3,20 @@ import java.util.Scanner;
 public class Model
 {
     private int[] pits;
-    //private boolean gameOver;
-    //private int counter;
+    private boolean gameOver;
+    private int counter;
     private Player player1;
     private Player player2;
 
     public Model(int initialStones)
     {
         pits = new int[12];
-        //boolean gameOver = false;
-        //counter = 0;
+        boolean gameOver = false;
+        counter = 0;
         player1 = new Player();
         player2 = new Player();
         initiatePits(initialStones);
-        //startGame();
+        startGame();
     }
 
     private void initiatePits(int n)
@@ -59,8 +59,8 @@ public class Model
         Model test = new Model(2);
     }
 	
-	/*
-    private void pickPitNumber(String pit)
+
+    public void pickPitNumber(String pit)
     {
         int pitNumber = Integer.parseInt(pit.substring(1, 2)) - 1;
         if(pit.substring(0, 1).equals("B"))
@@ -209,5 +209,11 @@ public class Model
         }
 
     }
-	*/
+
+    public int pitIndex(String pit){
+        int pitNumber = Integer.parseInt(pit.substring(1, 2)) - 1;
+        if(pit.substring(0, 1).equals("B"))
+            pitNumber = pitNumber + 6;
+        return pitNumber;
+    }
 }
