@@ -126,6 +126,9 @@ public abstract class AbstractStrategy implements BoardStrategy
     {
         return playerLabel;
     }
-
+    
+    public ArrayList<JButton> getAllButtons(){
+    	return allButtons;
+    }
 }
 

@@ -31,10 +31,15 @@ public class Controller
        pickPitNumber(pitName); 
        int pitNumber = pitIndex(pitName); //index of pitName. 0-11
        int numOfStonesInPit = model.getStonesInPit(pitNumber); 
-       
-       for(int i = 0; i < numOfStonesInPit; i++){
+      
+       for(int i = 0; i < view.getAllButtons().size(); i++){
+    	   view.get(i).setText(model.getStonesInPit(i));
     	   
        }
+      
+    view.super.getMancala().get(0).setText(model.getStonesInP1Mancala()); //updating mancala1
+    view.super.getMancala().get(1).setText(model.getStonesInP2Mancala()); //updating mancala2
+       
        
        
        ArrayList<JButton> allPits = view.getPits();
