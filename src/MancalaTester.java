@@ -6,5 +6,6 @@ public class MancalaTester
     public static void main(String[] args)
     {
         View c = new View();
+        View2 d = new View2();
     }
 }

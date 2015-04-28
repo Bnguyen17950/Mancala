@@ -1,31 +1,23 @@
-import java.awt.Container;
+import javax.swing.*;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
 
 /**
- * update kevin 11:18
- * Created by bryannguyen on 4/3/15.
+ * Created by bryannguyen on 4/24/15.
  */
-public class View extends AbstractStrategy
+public class View2 extends AbstractStrategy
 {
+
     private JLabel mancalaPlayerA;
     private JLabel mancalaPlayerB;
 
     public void CreateMancala()
     {
         //creates mancala B and mancala A
-        int x = 80;
+        int y = 80;
         for (int i = 0; i < 2; i++) {
             getMancala().add(new JButton());
-            getMancala().get(i).setBounds(x, 100, 60, 300);
-            x += 780;
+            getMancala().get(i).setBounds(320, y, 320, 40);
+            y += 320;
             pnlMancala.add(getMancala().get(i));
 
         }
@@ -45,5 +37,4 @@ public class View extends AbstractStrategy
             pnlMancala.add(getPlayerLabel().get(i));
         }
     }
-
 }
