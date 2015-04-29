@@ -34,7 +34,7 @@ public class Pit
 
         stoneLabel.setBounds(20, 20, 250, 50);
         stoneNumber.setBounds(30, 80, 50, 25);
-        Enter.setBounds(100, 80, 50, 20);
+        Enter.setBounds(100, 80, 100, 20);
 
         frame.setVisible(true);
         frame.setResizable(false);
