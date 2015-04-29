@@ -24,7 +24,6 @@ public abstract class AbstractStrategy implements BoardStrategy
     private ArrayList<JButton> allButtons = new ArrayList<JButton>();
     private JButton undoButton;
     private JLabel Player1Turn, Player2Turn;
-    //private Model model = new Model();
 
 
     public AbstractStrategy()
@@ -47,22 +46,27 @@ public abstract class AbstractStrategy implements BoardStrategy
         pnlMancala.add(undoButton);
         Player1Turn = new JLabel("Player 1 -->");
         Player2Turn = new JLabel("Player 2 -->");
-        /*
-        if(model.getCounter() % 2 == 0)
-        {
-            Player1Turn.setBounds(450, 500, 100, 75);
-            pnlMancala.add(Player1Turn);
-            Player2Turn.setVisible(false);
-        }
-        else
-        {
-            Player2Turn.setBounds(450, 500, 100, 75);
-            pnlMancala.add(Player2Turn);
-            Player1Turn.setVisible(false);
-        }
-        */
+        addPlayerTurns();
+        
     }
+    
+    public void addPlayerTurns(){
+    	Player1Turn.setBounds(450, 500, 100, 75);
+    	Player2Turn.setBounds(450, 500, 100, 75);
 
+        pnlMancala.add(Player1Turn);
+        pnlMancala.add(Player2Turn);
+        
+        Player2Turn.setVisible(false);
+    }
+    public void player1Turn(boolean setter){
+    	
+    	Player1Turn.setVisible(setter);
+    }
+    
+    public void player2Turn(boolean setter){
+    	Player2Turn.setVisible(setter);
+    }
     public void CreateRowAPits()
     {
         //creates row of A pits
@@ -162,6 +166,12 @@ public abstract class AbstractStrategy implements BoardStrategy
             button.addActionListener(l);
         }
     }
+    
+    public void addMancalaActionListener(ActionListener l){
+    	for(JButton button: mancala){
+    		button.addActionListener(l);
+    	}
+    }
 
     public ArrayList<JButton> getMancala()
     {
@@ -183,6 +193,10 @@ public abstract class AbstractStrategy implements BoardStrategy
             stones += "*";
         }
         return stones;
+    }
+    
+    public JFrame getFrame(){
+    	return frame;
     }
 }
 

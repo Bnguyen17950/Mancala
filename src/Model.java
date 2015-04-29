@@ -127,9 +127,10 @@ public class Model
         }
         //showPits();
         checkWinner();
+        counter++; //added here instead of startGame()
     }
 
-    private void checkWinner()
+    public void checkWinner()
     {
         int zerosFound = 0;
         if(counter % 2 == 0)
@@ -148,12 +149,12 @@ public class Model
         if(zerosFound == 6)
         {
             gameOver = true;
-            if(player1.getStonesInMancala() > player2.getStonesInMancala())
-                System.out.println("Player 1 Wins");
-            else if(player2.getStonesInMancala() > player2.getStonesInMancala())
-                System.out.println("Player 2 Wins");
-            else
-                System.out.println("Draw Game");
+//            if(player1.getStonesInMancala() > player2.getStonesInMancala())
+//                System.out.println("Player 1 Wins");
+//            else if(player2.getStonesInMancala() > player2.getStonesInMancala())
+//                System.out.println("Player 2 Wins");
+//            else
+//                System.out.println("Draw Game");
         }
     }
 	
@@ -217,5 +218,26 @@ public class Model
             pitNumber = pitNumber + 6;
         return pitNumber;
     }
+    
+    public boolean checkGameOver(){
+    	return gameOver;
+    }  
+    public boolean checkIfValid(String pit){
+//    	if(!gameOver){
+    		if(counter % 2 == 0 && !pit.substring(0, 1).equals("A"))
+            {
+                return true;
+                
+            }
+            else if(counter % 2 == 1 && !pit.substring(0, 1).equals("B"))
+            {
+               	return true;
+               
+            }
+//    	}
+    	return false;
+    }
+
+	
 
 }

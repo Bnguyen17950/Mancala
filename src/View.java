@@ -20,14 +20,16 @@ public class View extends AbstractStrategy
 
     public void CreateMancala()
     {
-        //creates mancala B and mancala A
+        //creates mancala B and then mancala A
+    	String player = "A";
         int x = 80;
         for (int i = 0; i < 2; i++) {
             getMancala().add(new JButton());
             getMancala().get(i).setBounds(x, 100, 60, 300);
             x += 780;
+            getMancala().get(i).setName("player" + player);
             pnlMancala.add(getMancala().get(i));
-
+            player = "B";
         }
     }
 

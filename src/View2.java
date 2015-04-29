@@ -12,7 +12,7 @@ public class View2 extends AbstractStrategy
 
     public void CreateMancala()
     {
-        //creates mancala B and mancala A
+        //creates mancala B and then mancala A
         int y = 80;
         for (int i = 0; i < 2; i++) {
             getMancala().add(new JButton());
