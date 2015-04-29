@@ -30,7 +30,7 @@ public class Controller
 		public void actionPerformed(ActionEvent e) {
 			String mancalaName = ((JButton) e.getSource()).getName();
 			if(mancalaName.equals("playerA")){
-				view.getMancala().get(0).setText(model.getStonesInP2Mancala() + ""); //change the * into the number
+				view.getMancala().get(0).setText(model.getStonesInP2Mancala() + ""); //change asterisk into the number
 			}
 			else{
 				view.getMancala().get(1).setText(model.getStonesInP1Mancala() + "");
@@ -44,8 +44,17 @@ public class Controller
          public void actionPerformed(ActionEvent e) {
 
              String pitName = ((JButton) e.getSource()).getName(); //pitName A5, B1, etc
-             
-             if(model.checkIfGameOver(pitName)){ 
+            
+             //need to create an if statement to check if game is over
+             if(model.checkGameOver()){
+            	 if(model.getStonesInP1Mancala() > model.getStonesInP2Mancala())
+                     System.out.println("Player 1 Wins");
+                 else if(model.getStonesInP2Mancala() > model.getStonesInP1Mancala())
+                     System.out.println("Player 2 Wins");
+                 else
+                     System.out.println("Draw Game");
+             }
+             else if(model.checkIfValid(pitName)){ 
         		 JOptionPane.showMessageDialog(view.getFrame(), "Invalid Move.");
         	 }
              else{
