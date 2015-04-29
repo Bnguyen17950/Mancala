@@ -50,15 +50,18 @@ public abstract class AbstractStrategy implements BoardStrategy
         
     }
     
-    public void addPlayerTurns(){
-    	Player1Turn.setBounds(450, 500, 100, 75);
-    	Player2Turn.setBounds(450, 500, 100, 75);
-
+    public void addPlayerTurns()
+    {
+       // Player1Turn.setBackground(Color.red);
+       // Player2Turn.setBackground(Color.yellow);
+    	Player1Turn.setBounds(450, 300, 100, 100);
+        Player2Turn.setBounds(450, 100, 100, 100);
         pnlMancala.add(Player1Turn);
         pnlMancala.add(Player2Turn);
         
         Player2Turn.setVisible(false);
     }
+
     public void player1Turn(boolean setter){
     	
     	Player1Turn.setVisible(setter);
@@ -95,8 +98,7 @@ public abstract class AbstractStrategy implements BoardStrategy
     public void CreateRowBPits() {
         //creates row of B pits
         int x = 700;
-        for (int i = 0; i < 6; i++)
-        {
+        for (int i = 0; i < 6; i++) {
             BJButtons.add(new JButton());
             BJButtons.get(i).setBounds(x, 220, 100, 40);
             x -= 100;

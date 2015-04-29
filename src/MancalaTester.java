@@ -11,6 +11,6 @@ public class MancalaTester
         Model model = new Model();
         model.initiatePits(1);  //user input
         Controller c = new Controller(model, new View());
-//        Controller c2 = new Controller(model, new View2());
+        Controller c2 = new Controller(model, new View2());
     }
 }

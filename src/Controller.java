@@ -17,7 +17,7 @@ public class Controller
     private Model model;
     private BoardStrategy view;
 
-    public Controller(Model model, AbstractStrategy view)
+    public Controller(final Model model, final AbstractStrategy view)
     {
      this.model = model;
      this.view = view;
