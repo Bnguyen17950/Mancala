@@ -21,6 +21,8 @@ public class Controller
      this.model = model;
      this.view = view;
 	 counter = 0;
+        view.setRowAPits(model.getStonesInPit(0));
+        view.setRowBPits(model.getStonesInPit(0));
      
      
   
@@ -39,9 +41,18 @@ public class Controller
              }
 
              view.getMancala().get(0).setText(String.valueOf(model.getStonesInP1Mancala())); //updating mancala1
-             view.getMancala().get(1).setText(String.valueOf(model.getStonesInP2Mancala())); //updating mancala2
+             view.getMancala().get(1).setText(String.valueOf(model.getStonesInP2Mancala()));
+              System.out.print(model.getStonesInP2Mancala());//updating mancala2
          }
      });
+    }
+
+    public String setStones(int number){
+        String stones = "";
+        for(int i =0; i < number; i++){
+            stones += "*";
+        }
+        return stones;
     }
 }
        

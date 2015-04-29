@@ -36,8 +36,8 @@ public class View extends AbstractStrategy
         //creates the label for the mancalas
         mancalaPlayerA = new JLabel("Player A");
         mancalaPlayerB = new JLabel("Player B");
-        getPlayerLabel().add(mancalaPlayerA);
         getPlayerLabel().add(mancalaPlayerB);
+        getPlayerLabel().add(mancalaPlayerA);
         int x = 80;
         for (int i = 0; i < getPlayerLabel().size(); i++) {
             getPlayerLabel().get(i).setBounds(x, 40, 100, 100);
@@ -45,5 +45,7 @@ public class View extends AbstractStrategy
             pnlMancala.add(getPlayerLabel().get(i));
         }
     }
+
+
 
 }

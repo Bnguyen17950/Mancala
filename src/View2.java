@@ -28,12 +28,13 @@ public class View2 extends AbstractStrategy
         //creates the label for the mancalas
         mancalaPlayerA = new JLabel("Player A");
         mancalaPlayerB = new JLabel("Player B");
-        getPlayerLabel().add(mancalaPlayerA);
         getPlayerLabel().add(mancalaPlayerB);
-        int x = 80;
-        for (int i = 0; i < getPlayerLabel().size(); i++) {
-            getPlayerLabel().get(i).setBounds(x, 40, 100, 100);
-            x += 780;
+        getPlayerLabel().add(mancalaPlayerA);
+        for(int i = 0; i < getPlayerLabel().size(); i++)
+        {
+            int xCoord = getMancala().get(i).getX() + getMancala().get(i).getWidth() / 3;
+            int yCoord = getMancala().get(i).getY() - getMancala().get(i).getHeight() / 2;
+            getPlayerLabel().get(i).setBounds(xCoord, yCoord, getMancala().get(i).getWidth() / 2, getMancala().get(i).getHeight() / 2);
             pnlMancala.add(getPlayerLabel().get(i));
         }
     }

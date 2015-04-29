@@ -8,18 +8,18 @@ public class Model
     private Player player1;
     private Player player2;
 
-    public Model(int initialStones)
+    public Model()
     {
         pits = new int[12];
         boolean gameOver = false;
         counter = 0;
         player1 = new Player();
         player2 = new Player();
-        initiatePits(initialStones);
-        startGame();
+        //initiatePits(initialStones);
+        //startGame();
     }
 
-    private void initiatePits(int n)
+    public void initiatePits(int n)
     {
         for(int i = 0; i < pits.length; i++)
             pits[i] = n;
@@ -56,7 +56,7 @@ public class Model
 
     public static void main(String[] args)
     {
-        Model test = new Model(2);
+        //Model test = new Model(2);
     }
 	
 
@@ -125,7 +125,7 @@ public class Model
                 }
             }
         }
-        showPits();
+        //showPits();
         checkWinner();
     }
 
@@ -162,7 +162,7 @@ public class Model
 		return counter;
 	}
 		
-	
+	/*
     private void showPits()
     {
         System.out.println();
@@ -180,6 +180,7 @@ public class Model
         System.out.println("Player 2's Mancala: " + player2.getStonesInMancala());
         System.out.println();
     }
+
 
     private void startGame()
     {
@@ -209,11 +210,12 @@ public class Model
         }
 
     }
-
+*/
     public int pitIndex(String pit){
         int pitNumber = Integer.parseInt(pit.substring(1, 2)) - 1;
         if(pit.substring(0, 1).equals("B"))
             pitNumber = pitNumber + 6;
         return pitNumber;
     }
+
 }

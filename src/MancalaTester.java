@@ -5,7 +5,12 @@ public class MancalaTester
 {
     public static void main(String[] args)
     {
-        View c = new View();
-        View2 d = new View2();
+        //Create Frame take user input
+        View view1 = new View();
+        //View2 view2 = new View2();
+
+        Model model = new Model();
+        model.initiatePits(4);  //user input
+        Controller c = new Controller(model, view1);
     }
 }
