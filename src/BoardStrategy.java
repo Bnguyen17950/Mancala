@@ -12,4 +12,5 @@ public interface BoardStrategy
     void insertButtons();
     void CreateLabelsForPlayerA();
     void addPitActionListener(ActionListener l);
+	void addMancalaActionListener(ActionListener l);
 }

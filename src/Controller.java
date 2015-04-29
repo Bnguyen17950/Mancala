@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  * Created by bryannguyen on 4/13/15.
@@ -14,29 +15,75 @@ public class Controller
     //update information (Contains all the listeners)
 	private int counter;
     private Model model;
-    private View view;
+    private BoardStrategy view;
 
-    public Controller(final Model model, final View view)
+    public Controller(Model model, AbstractStrategy view)
     {
      this.model = model;
      this.view = view;
 	 counter = 0;
+        view.setRowAPits(model.getStonesInPit(0));
+        view.setRowBPits(model.getStonesInPit(0));
      
-     
-  
-     this.view.addPitActionListener(new ActionListener(){
-      public void actionPerformed(ActionEvent e){
+    this.view.addMancalaActionListener(new ActionListener(){
+
+		public void actionPerformed(ActionEvent e) {
+			String mancalaName = ((JButton) e.getSource()).getName();
+			if(mancalaName.equals("playerA")){
+				view.getMancala().get(0).setText(model.getStonesInP2Mancala() + ""); //change the * into the number
+			}
+			else{
+				view.getMancala().get(1).setText(model.getStonesInP1Mancala() + "");
+			}
+		}
     	
-       String pitName = ((JButton) e.getSource()).getName(); //pitName A5, B1, etc
-       pickPitNumber(pitName); 
-       int pitNumber = pitIndex(pitName); //index of pitName. 0-11
-       int numOfStonesInPit = model.getStonesInPit(pitNumber); 
+    });
+  
+     this.view.addPitActionListener(new ActionListener()
+     {
+         public void actionPerformed(ActionEvent e) {
+
+             String pitName = ((JButton) e.getSource()).getName(); //pitName A5, B1, etc
+             
+             if(model.checkIfGameOver(pitName)){ 
+        		 JOptionPane.showMessageDialog(view.getFrame(), "Invalid Move.");
+        	 }
+             else{
+            	 model.pickPitNumber(pitName);
+                 int pitNumber = model.pitIndex(pitName); //index of pitName. 0-11
+
+                 for (int i = 0; i < view.getAllButtons().size(); i++) {
+                     view.getAllButtons().get(i).setText(setStones(model.getStonesInPit(i)));
+                 }
+
+                 view.getMancala().get(0).setText(setStones(model.getStonesInP2Mancala())); //updating mancala1
+                 view.getMancala().get(1).setText(setStones(model.getStonesInP1Mancala()));
+                 if(model.getCounter() % 2 == 0)
+                 {
+                     view.player2Turn(false);
+                     view.player1Turn(true);
+                 }
+                 else
+                 {
+                     view.player1Turn(false);
+                     view.player2Turn(true);
+                 }
+             }
+         }
+     });
+    }
+    
+    public String setStones(int number){
+        String stones = "";
+        for(int i =0; i < number; i++){
+            stones += "*";
+        }
+        return stones;
+    }
+}
        
-       for(int i = 0; i < numOfStonesInPit; i++){
-    	   
-       }
        
-       
+       /*
        ArrayList<JButton> allPits = view.getPits();
        int[] modelArray = model.getModelPits();
              for(int i =0; i < allPits.size(); i++){
@@ -171,11 +218,10 @@ public class Controller
                 System.out.println("Draw Game");
         }
     }
-	
+
 	public int getCounter()
 	{
         //Bryan saw this
 		return counter;
 	}
 	*/
-}

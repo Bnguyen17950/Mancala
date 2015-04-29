@@ -22,6 +22,10 @@ public abstract class AbstractStrategy implements BoardStrategy
     private ArrayList<JLabel> playerLabel = new ArrayList<JLabel>();
     private ArrayList<JLabel> pitLabel = new ArrayList<JLabel>();
     private ArrayList<JButton> allButtons = new ArrayList<JButton>();
+    private JButton undoButton;
+    private JLabel Player1Turn, Player2Turn;
+    //private Model model = new Model();
+
 
     public AbstractStrategy()
     {
@@ -38,9 +42,34 @@ public abstract class AbstractStrategy implements BoardStrategy
         CreateRowBPits();
         insertButtons();
         CreateLabelsForPlayerA();
+        undoButton = new JButton("UNDO");
+        undoButton.setBounds(10, 500, 75, 75);
+        pnlMancala.add(undoButton);
+        Player1Turn = new JLabel("Player 1 -->");
+        Player2Turn = new JLabel("Player 2 -->");
+        addPlayerTurns();
+        
     }
+    
+    public void addPlayerTurns(){
+    	Player1Turn.setBounds(450, 500, 100, 75);
+    	Player2Turn.setBounds(450, 500, 100, 75);
 
-    public void CreateRowAPits() {
+        pnlMancala.add(Player1Turn);
+        pnlMancala.add(Player2Turn);
+        
+        Player2Turn.setVisible(false);
+    }
+    public void player1Turn(boolean setter){
+    	
+    	Player1Turn.setVisible(setter);
+    }
+    
+    public void player2Turn(boolean setter){
+    	Player2Turn.setVisible(setter);
+    }
+    public void CreateRowAPits()
+    {
         //creates row of A pits
         int x = 200;
         for (int i = 0; i < 6; i++) {
@@ -50,21 +79,42 @@ public abstract class AbstractStrategy implements BoardStrategy
             pnlMancala.add(AJButtons.get(i));
             String buttonNumber = "A" + (i + 1);
             AJButtons.get(i).setName(buttonNumber);
-//            	AJButtons.get(i).setText(buttonNumber);
+           	//AJButtons.get(i).setText(buttonNumber);
+        }
+    }
+
+    public void setRowAPits (int numStones)
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            int numOfStones = (numStones);
+            String buttonNumber = setStones(numOfStones);
+            AJButtons.get(i).setText(buttonNumber);
         }
     }
 
     public void CreateRowBPits() {
         //creates row of B pits
         int x = 700;
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 6; i++)
+        {
             BJButtons.add(new JButton());
             BJButtons.get(i).setBounds(x, 220, 100, 40);
             x -= 100;
             String buttonNumber = "B" + (i + 1);
             BJButtons.get(i).setName(buttonNumber);
-//            	BJButtons.get(i).setText(buttonNumber);
+       	    //BJButtons.get(i).setText(buttonNumber);
             pnlMancala.add(BJButtons.get(i));
+        }
+    }
+
+    public void setRowBPits (int numStones)
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            int numOfStones = (numStones);
+            String buttonNumber = setStones(numOfStones);
+            BJButtons.get(i).setText(buttonNumber);
         }
     }
 
@@ -78,7 +128,8 @@ public abstract class AbstractStrategy implements BoardStrategy
         }
     }
 
-    public void CreateLabelsForPlayerA() {
+    public void CreateLabelsForPlayerA()
+    {
         // Creates labels for Player A's pits
         for (int i = 0; i < 6; i++) {
             final JLabel aLabel = new JLabel("A" + (i + 1));
@@ -91,7 +142,7 @@ public abstract class AbstractStrategy implements BoardStrategy
 
         // Creates labels for Player B's pits
         for (int i = 0; i < 6; i++) {
-            final JLabel bLabel = new JLabel("B" + (6 - i));
+            final JLabel bLabel = new JLabel("B" + (i + 1));
             pitLabel.add(bLabel);
 
             int xCoord = BJButtons.get(i).getX() + BJButtons.get(i).getWidth() / 2;
@@ -116,6 +167,12 @@ public abstract class AbstractStrategy implements BoardStrategy
             button.addActionListener(l);
         }
     }
+    
+    public void addMancalaActionListener(ActionListener l){
+    	for(JButton button: mancala){
+    		button.addActionListener(l);
+    	}
+    }
 
     public ArrayList<JButton> getMancala()
     {
@@ -126,6 +183,21 @@ public abstract class AbstractStrategy implements BoardStrategy
     {
         return playerLabel;
     }
+    
+    public ArrayList<JButton> getAllButtons(){
+    	return allButtons;
+    }
 
+    public String setStones(int number){
+        String stones = "";
+        for(int i =0; i < number; i++){
+            stones += "*";
+        }
+        return stones;
+    }
+    
+    public JFrame getFrame(){
+    	return frame;
+    }
 }
 
