@@ -52,8 +52,9 @@ public abstract class AbstractStrategy implements BoardStrategy
     
     public void addPlayerTurns()
     {
-       // Player1Turn.setBackground(Color.red);
-       // Player2Turn.setBackground(Color.yellow);
+
+       Player1Turn.setForeground(Color.red);
+       Player2Turn.setForeground(Color.yellow);
     	Player1Turn.setBounds(450, 300, 100, 100);
         Player2Turn.setBounds(450, 100, 100, 100);
         pnlMancala.add(Player1Turn);
