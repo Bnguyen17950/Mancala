@@ -1,4 +1,4 @@
-import java.awt.Container;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
@@ -38,10 +38,13 @@ public class View extends AbstractStrategy
         //creates the label for the mancalas
         mancalaPlayerA = new JLabel("Player A");
         mancalaPlayerB = new JLabel("Player B");
+        mancalaPlayerA.setForeground(Color.red);
+        mancalaPlayerB.setForeground(Color.blue);
         getPlayerLabel().add(mancalaPlayerB);
         getPlayerLabel().add(mancalaPlayerA);
         int x = 80;
-        for (int i = 0; i < getPlayerLabel().size(); i++) {
+        for (int i = 0; i < getPlayerLabel().size(); i++)
+        {
             getPlayerLabel().get(i).setBounds(x, 40, 100, 100);
             x += 780;
             pnlMancala.add(getPlayerLabel().get(i));

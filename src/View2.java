@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 /**
@@ -28,6 +29,8 @@ public class View2 extends AbstractStrategy
         //creates the label for the mancalas
         mancalaPlayerA = new JLabel("Player A");
         mancalaPlayerB = new JLabel("Player B");
+        mancalaPlayerA.setForeground(Color.red);
+        mancalaPlayerB.setForeground(Color.blue);
         getPlayerLabel().add(mancalaPlayerB);
         getPlayerLabel().add(mancalaPlayerA);
         for(int i = 0; i < getPlayerLabel().size(); i++)

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a35a0d08-7801-45ee-8693-47b8c1f886a4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AbstractStrategy.java" afterPath="$PROJECT_DIR$/src/AbstractStrategy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View.java" afterPath="$PROJECT_DIR$/src/View.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View2.java" afterPath="$PROJECT_DIR$/src/View2.java" />
     </list>
     <ignored path="Mancala.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,12 +30,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AbstractStrategy.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AbstractStrategy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AbstractStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.87349397">
-              <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
-              <folding />
+            <state vertical-scroll-proportion="-7.4814816">
+              <caret line="143" column="9" selection-start-line="143" selection-start-column="9" selection-end-line="143" selection-end-column="9" />
+              <folding>
+                <element signature="e#5821#5822#0" expanded="true" />
+                <element signature="e#5855#5856#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/src/View.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="44" selection-start-line="0" selection-start-column="0" selection-end-line="52" selection-end-column="1" />
+              <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -62,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/src/View2.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -83,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MancalaTester.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MancalaTester.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MancalaTester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.090361446">
+              <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -127,12 +132,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/View2.java" />
         <option value="$PROJECT_DIR$/src/Model.java" />
         <option value="$PROJECT_DIR$/src/BoardStrategy.java" />
-        <option value="$PROJECT_DIR$/src/View.java" />
         <option value="$PROJECT_DIR$/src/Controller.java" />
         <option value="$PROJECT_DIR$/src/MancalaTester.java" />
+        <option value="$PROJECT_DIR$/src/View2.java" />
+        <option value="$PROJECT_DIR$/src/View.java" />
         <option value="$PROJECT_DIR$/src/AbstractStrategy.java" />
       </list>
     </option>
@@ -467,7 +472,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="98" column="36" selection-start-line="98" selection-start-column="36" selection-end-line="98" selection-end-column="36" />
-          <folding />
+          <folding>
+            <element signature="e#5821#5822#0" expanded="true" />
+            <element signature="e#5855#5856#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -539,43 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="44" selection-start-line="0" selection-start-column="0" selection-end-line="52" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
-          <folding>
-            <element signature="e#691#1074#0" expanded="true" />
-            <element signature="e#1073#1074#0" expanded="true" />
-            <element signature="e#1116#2822#0" expanded="true" />
-            <element signature="e#2821#2822#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MancalaTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -600,10 +571,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AbstractStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.87349397">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+        <state vertical-scroll-proportion="-7.4814816">
+          <caret line="143" column="9" selection-start-line="143" selection-start-column="9" selection-end-line="143" selection-end-column="9" />
+          <folding>
+            <element signature="e#5821#5822#0" expanded="true" />
+            <element signature="e#5855#5856#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+          <folding>
+            <element signature="e#691#1074#0" expanded="true" />
+            <element signature="e#1073#1074#0" expanded="true" />
+            <element signature="e#1116#2822#0" expanded="true" />
+            <element signature="e#2821#2822#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MancalaTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.090361446">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
           <folding />
         </state>
       </provider>

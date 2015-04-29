@@ -54,7 +54,7 @@ public abstract class AbstractStrategy implements BoardStrategy
     {
 
        Player1Turn.setForeground(Color.red);
-       Player2Turn.setForeground(Color.yellow);
+       Player2Turn.setForeground(Color.blue);
     	Player1Turn.setBounds(450, 300, 100, 100);
         Player2Turn.setBounds(450, 100, 100, 100);
         pnlMancala.add(Player1Turn);
@@ -135,6 +135,7 @@ public abstract class AbstractStrategy implements BoardStrategy
         // Creates labels for Player A's pits
         for (int i = 0; i < 6; i++) {
             final JLabel aLabel = new JLabel("A" + (i + 1));
+            aLabel.setForeground(Color.red);
             pitLabel.add(aLabel);
 
             int xCoord = AJButtons.get(i).getX() + AJButtons.get(i).getWidth() / 2;
@@ -146,7 +147,7 @@ public abstract class AbstractStrategy implements BoardStrategy
         for (int i = 0; i < 6; i++) {
             final JLabel bLabel = new JLabel("B" + (i + 1));
             pitLabel.add(bLabel);
-
+            bLabel.setForeground(Color.blue);
             int xCoord = BJButtons.get(i).getX() + BJButtons.get(i).getWidth() / 2;
             int yCoord = BJButtons.get(i).getY() - BJButtons.get(i).getHeight() / 2;
             bLabel.setBounds(xCoord, yCoord, BJButtons.get(i).getWidth(), BJButtons.get(i).getHeight() / 2);
