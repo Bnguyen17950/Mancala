@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class Model
 {
     private int[] pits;
+    private int[] copyPits;
+    private int previousP1Mancala, previousP2Mancala;
     private boolean gameOver;
     private int counter;
     private Player player1;
@@ -10,11 +12,16 @@ public class Model
 
     public Model()
     {
+    	previousP1Mancala = 0;
+    	previousP2Mancala = 0;
         pits = new int[12];
+        copyPits = new int[12];
         boolean gameOver = false;
         counter = 0;
         player1 = new Player();
         player2 = new Player();
+        
+        System.arraycopy(pits, 0, copyPits, 0, copyPits.length); //makes a copy of the pit
         //initiatePits(initialStones);
         //startGame();
     }
@@ -59,9 +66,30 @@ public class Model
         //Model test = new Model(2);
     }
 	
-
+    public void undo(){
+    	System.arraycopy(copyPits, 0, pits, 0, pits.length);
+    	counter--;
+    	int previousP1 =  getStonesInP1Mancala();
+    	int previousP2 = getStonesInP1Mancala();
+    }
+    
+    public void saveState()
+    {
+     System.arraycopy(pits, 0, copyPits, 0, copyPits.length);
+     previousP1Mancala = getStonesInP1Mancala();
+     previousP2Mancala = getStonesInP2Mancala();
+    }
+    
+    public void restoreState()
+    {
+     System.arraycopy(copyPits, 0, pits, 0, pits.length);
+     player1.setStones(previousP1Mancala);
+     player2.setStones(previousP2Mancala);
+     counter--;
+    }
     public void pickPitNumber(String pit)
     {
+    	saveState();
         int pitNumber = Integer.parseInt(pit.substring(1, 2)) - 1;
         if(pit.substring(0, 1).equals("B"))
             pitNumber = pitNumber + 6;

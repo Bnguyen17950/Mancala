@@ -176,7 +176,10 @@ public abstract class AbstractStrategy implements BoardStrategy
     		button.addActionListener(l);
     	}
     }
-
+    public void addUndoActionListener(ActionListener l){
+    	undoButton.addActionListener(l);
+    }
+    
     public ArrayList<JButton> getMancala()
     {
         return mancala;
