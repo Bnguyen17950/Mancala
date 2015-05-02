@@ -57,7 +57,7 @@ public class MancalaTester
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            Pit p = new Pit();
+            Pit p = new Pit(0);
         }
     }
 
@@ -67,7 +67,7 @@ public class MancalaTester
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            Pit p = new Pit();
+            Pit p = new Pit(1);
         }
     }
 }

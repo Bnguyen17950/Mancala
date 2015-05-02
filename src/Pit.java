@@ -14,8 +14,9 @@ public class Pit
     private JLabel stoneLabel;
     private Container pane;
     private JPanel pnlStones;
+    private int selection;
 
-    public Pit()
+    public Pit(int x)
     {
         frame = new JFrame();
         pane = frame.getContentPane();
@@ -24,6 +25,7 @@ public class Pit
         stoneLabel = new JLabel("Select Number of Stones: ");
         pnlStones = new JPanel(null);
         frame.setSize(300, 200);
+        selection = x;
 
         pane.add(pnlStones);
         pnlStones.add(stoneNumber3);
@@ -47,9 +49,17 @@ public class Pit
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            Model model = new Model();
-            model.initiatePits(3);
-            Controller c = new Controller(model, new View());
+            if(selection == 0) {
+                Model model = new Model();
+                model.initiatePits(3);
+                Controller c = new Controller(model, new View());
+            }
+            else
+            {
+                Model model = new Model();
+                model.initiatePits(3);
+                Controller c = new Controller(model, new View2());
+            }
 
         }
     }
@@ -59,9 +69,17 @@ public class Pit
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            Model model = new Model();
-            model.initiatePits(4);
-            Controller c = new Controller(model, new View());
+            if(selection == 0) {
+                Model model = new Model();
+                model.initiatePits(4);
+                Controller c = new Controller(model, new View());
+            }
+            else
+            {
+                Model model = new Model();
+                model.initiatePits(4);
+                Controller c = new Controller(model, new View2());
+            }
         }
     }
 

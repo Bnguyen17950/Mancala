@@ -65,7 +65,7 @@ public class Model
     {
         //Model test = new Model(2);
     }
-    
+
     public void saveState()
     {
      System.arraycopy(pits, 0, copyPits, 0, copyPits.length);
