@@ -1,4 +1,5 @@
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 
@@ -14,13 +15,15 @@ public class View2 extends AbstractStrategy
     public void CreateMancala()
     {
         //creates mancala B and then mancala A
+    	String player = "A";
         int y = 80;
         for (int i = 0; i < 2; i++) {
             getMancala().add(new JButton());
             getMancala().get(i).setBounds(320, y, 320, 40);
             y += 320;
+            getMancala().get(i).setName("player" + player);
             pnlMancala.add(getMancala().get(i));
-
+            player = "B";
         }
     }
 
