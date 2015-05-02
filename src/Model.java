@@ -85,7 +85,8 @@ public class Model
     }
     public void pickPitNumber(String pit)
     {
-    	saveState();
+        saveState();
+
         int pitNumber = Integer.parseInt(pit.substring(1, 2)) - 1;
         if(pit.substring(0, 1).equals("B"))
             pitNumber = pitNumber + 6;
@@ -95,24 +96,24 @@ public class Model
 
         for(int i = pitNumber + 1, j = 0; j < stonesToPlace; i++, j++)
         {
-            if(i == 6 && counter % 2 == 0)
+            if(i == 6 && counter % 2 == 0) // Update P1 Mancala
             {
                 player1.addStoneToMancala();
-                if(j < stonesToPlace - 1)
+                if(j < stonesToPlace - 1) // if there are more stones to be added
                 {
                     pits[i % 12]++;
                     j++;
                 }
-                else if(j == stonesToPlace - 1)
+                else if(j == stonesToPlace - 1) // if there are no more stones to be added
                 {
                     checkWinner();
-                    counter--;
+                    counter--;	// Player 1 gets another turn for ending in mancala
                 }
             }
-            else if(i == 12 && counter % 2 == 1)
+            else if(i == 12 && counter % 2 == 1) // Update P2 mancala
             {
                 player2.addStoneToMancala();
-                if(j < stonesToPlace - 1)
+                if(j < stonesToPlace - 1)	// if there are more stones to be added
                 {
                     pits[i % 12]++;
                     j++;
@@ -120,20 +121,21 @@ public class Model
                 else if(j == stonesToPlace - 1)
                 {
                     checkWinner();
-                    counter--;
+                    counter--; // player 2 gets another turn for ending in mancala
                 }
             }
             else
                 pits[i % 12]++;
 
+            // Begin checking captures
             if(j == stonesToPlace - 1 && counter % 2 == 0 && pits[i % 12] == 1)
             {
                 if(i % 12 <= 5)
                 {
-                    //System.out.println("Checking capture; i = " + i);
-                    player1.setStones(player1.getStonesInMancala() + pits[pits.length - i - 1]);
-                    pits[pits.length - i - 1] = 0;
-                    //System.out.println("Stones captured @ index " + (pits.length - i - 1));
+                    System.out.println("Checking capture; i = " + i);
+                    player1.setStones(player1.getStonesInMancala() + pits[pits.length - (i % 12) - 1]);
+                    pits[pits.length - (i % 12) - 1] = 0;
+                    System.out.println("Stones captured @ index " + (pits.length - i - 1));
                     checkWinner();
                 }
             }
@@ -141,15 +143,15 @@ public class Model
             {
                 if(i % 12 >= 6)
                 {
-                    //System.out.println("Checking capture; i = " + i);
-                    player2.setStones(player2.getStonesInMancala() + pits[pits.length - i % 12 - 1]);
-                    pits[pits.length - i - 1] = 0;
-                    //System.out.println("Stones captured @ index " + (pits.length - i - 1));
+                    System.out.println("Checking capture; i = " + i);
+                    player2.setStones(player2.getStonesInMancala() + pits[pits.length - (i % 12) - 1]);
+                    pits[pits.length - (i % 12) - 1] = 0;
+                    System.out.println("Stones captured @ index " + (pits.length - i - 1));
                     checkWinner();
                 }
             }
         }
-        //showPits();
+
         checkWinner();
         counter++; //added here instead of startGame()
     }
