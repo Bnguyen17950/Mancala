@@ -12,14 +12,11 @@ public class Pit
     private JButton stoneNumber3;
     private JButton stoneNumber4;
     private JLabel stoneLabel;
-    private JButton Enter;
     private Container pane;
     private JPanel pnlStones;
-    private int number;
 
-    public Pit(int x)
+    public Pit()
     {
-        number = x;
         frame = new JFrame();
         pane = frame.getContentPane();
         stoneNumber3 = new JButton("3");
