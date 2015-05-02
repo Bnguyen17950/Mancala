@@ -11,118 +11,114 @@ import javax.swing.JOptionPane;
  */
 public class Controller
 {
-//    /*
+    //    /*
     //update information (Contains all the listeners)
-	private int counter;
+    private int counter;
     private Model model;
     private BoardStrategy view;
 
     public Controller(final Model model, final AbstractStrategy view)
     {
-     this.model = model;
-     this.view = view;
-	 counter = 0;
+        this.model = model;
+        this.view = view;
+        counter = 0;
         view.setRowAPits(model.getStonesInPit(0));
         view.setRowBPits(model.getStonesInPit(0));
-     
-    this.view.addMancalaActionListener(new ActionListener(){
 
-		public void actionPerformed(ActionEvent e) {
-			String mancalaName = ((JButton) e.getSource()).getName();
-			if(mancalaName.equals("playerA")){
-				view.getMancala().get(0).setText(model.getStonesInP2Mancala() + ""); //change asterisk into the number
-			}
-			else{
-				view.getMancala().get(1).setText(model.getStonesInP1Mancala() + "");
-			}
-		}
-    	
-    });
-  
-     this.view.addPitActionListener(new ActionListener()
-     {
-         public void actionPerformed(ActionEvent e) {
+        this.view.addMancalaActionListener(new ActionListener() {
 
-             String pitName = ((JButton) e.getSource()).getName(); //pitName A5, B1, etc
-            
-             //need to create an if statement to check if game is over
-             if(model.checkGameOver()){
-            	 if(model.getStonesInP1Mancala() > model.getStonesInP2Mancala())
-            		 JOptionPane.showMessageDialog(view.getFrame(), "Player 1 Wins.");
-                 else if(model.getStonesInP2Mancala() > model.getStonesInP1Mancala())
-                	 JOptionPane.showMessageDialog(view.getFrame(), "Player 2 Wins.");
-                 else
-                	 JOptionPane.showMessageDialog(view.getFrame(), "Draw Game.");
-             }
-             else if(model.checkIfValid(pitName)){ 
-        		 JOptionPane.showMessageDialog(view.getFrame(), "Invalid Move.");
-        	 }
-             else{
-            	 model.pickPitNumber(pitName);
+            public void actionPerformed(ActionEvent e) {
+                String mancalaName = ((JButton) e.getSource()).getName();
+                if (mancalaName.equals("playerA")) {
+                    view.getMancala().get(0).setText(model.getStonesInP2Mancala() + ""); //change asterisk into the number
+                } else {
+                    view.getMancala().get(1).setText(model.getStonesInP1Mancala() + "");
+                }
+            }
+
+        });
+
+        this.view.addPitActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                String pitName = ((JButton) e.getSource()).getName(); //pitName A5, B1, etc
+
+                //need to create an if statement to check if game is over
+                if (model.checkGameOver()) {
+                    if (model.getStonesInP1Mancala() > model.getStonesInP2Mancala())
+                        JOptionPane.showMessageDialog(view.getFrame(), "Player 1 Wins.");
+                    else if (model.getStonesInP2Mancala() > model.getStonesInP1Mancala())
+                        JOptionPane.showMessageDialog(view.getFrame(), "Player 2 Wins.");
+                    else
+                        JOptionPane.showMessageDialog(view.getFrame(), "Draw Game.");
+                } else if (model.checkIfValid(pitName)) {
+                    JOptionPane.showMessageDialog(view.getFrame(), "Invalid Move.");
+                } else {
+                    model.pickPitNumber(pitName);
 //                 int pitNumber = model.pitIndex(pitName); //index of pitName. 0-11
 
-                 for (int i = 0; i < view.getAllButtons().size(); i++) {
-                     view.getAllButtons().get(i).setText(setStones(model.getStonesInPit(i)));
-                 }
+                    for (int i = 0; i < view.getAllButtons().size(); i++) {
+                        view.getAllButtons().get(i).setText(setStones(model.getStonesInPit(i)));
+                    }
 
-                 view.getMancala().get(0).setText(setStones(model.getStonesInP2Mancala())); //updating mancala1
-                 view.getMancala().get(1).setText(setStones(model.getStonesInP1Mancala()));
-                 if(model.getCounter() % 2 == 0)
-                 {
-                     view.player2Turn(false);
-                     view.player1Turn(true);
-                 }
-                 else
-                 {
-                     view.player1Turn(false);
-                     view.player2Turn(true);
-                 }
-                 if(model.checkGameOver()){
-                	 if(model.getStonesInP1Mancala() > model.getStonesInP2Mancala())
-                		 JOptionPane.showMessageDialog(view.getFrame(), "Player 1 Wins.");
-                     else if(model.getStonesInP2Mancala() > model.getStonesInP1Mancala())
-                    	 JOptionPane.showMessageDialog(view.getFrame(), "Player 2 Wins.");
-                     else
-                    	 JOptionPane.showMessageDialog(view.getFrame(), "Draw Game.");
-                 }
-             }
-         }
-     });
-     
-     this.view.addUndoActionListener(new ActionListener(){
+                    view.getMancala().get(0).setText(setStones(model.getStonesInP2Mancala())); //updating mancala1
+                    view.getMancala().get(1).setText(setStones(model.getStonesInP1Mancala()));
+                    if (model.getCounter() % 2 == 0) {
+                        view.player2Turn(false);
+                        view.player1Turn(true);
+                    } else {
+                        view.player1Turn(false);
+                        view.player2Turn(true);
+                    }
+                    if (model.checkGameOver()) {
+                        if (model.getStonesInP1Mancala() > model.getStonesInP2Mancala())
+                            JOptionPane.showMessageDialog(view.getFrame(), "Player 1 Wins.");
+                        else if (model.getStonesInP2Mancala() > model.getStonesInP1Mancala())
+                            JOptionPane.showMessageDialog(view.getFrame(), "Player 2 Wins.");
+                        else
+                            JOptionPane.showMessageDialog(view.getFrame(), "Draw Game.");
+                    }
+                }
+            }
+        });
+        this.view.addUndoActionListener(new ActionListener() {
 
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			model.restoreState();
-			 for (int i = 0; i < view.getAllButtons().size(); i++) {
-                 view.getAllButtons().get(i).setText(setStones(model.getStonesInPit(i)));
-             }
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.restoreState();
+                for (int i = 0; i < view.getAllButtons().size(); i++) {
+                    view.getAllButtons().get(i).setText(setStones(model.getStonesInPit(i)));
+                }
 
-             view.getMancala().get(0).setText(setStones(model.getStonesInP2Mancala())); //updating mancala1
-             view.getMancala().get(1).setText(setStones(model.getStonesInP1Mancala()));
-             if(model.getCounter() % 2 == 0)
-             {
-                 view.player2Turn(false);
-                 view.player1Turn(true);
-             }
-             else
-             {
-                 view.player1Turn(false);
-                 view.player2Turn(true);
-             }
-             if(model.checkGameOver()){
-            	 if(model.getStonesInP1Mancala() > model.getStonesInP2Mancala())
-            		 JOptionPane.showMessageDialog(view.getFrame(), "Player 1 Wins.");
-                 else if(model.getStonesInP2Mancala() > model.getStonesInP1Mancala())
-                	 JOptionPane.showMessageDialog(view.getFrame(), "Player 2 Wins.");
-                 else
-                	 JOptionPane.showMessageDialog(view.getFrame(), "Draw Game.");
-             }
-		}
-    	 
-     });
+                view.getMancala().get(0).setText(setStones(model.getStonesInP2Mancala())); //updating mancala1
+                view.getMancala().get(1).setText(setStones(model.getStonesInP1Mancala()));
+                if (model.getCounter() % 2 == 0) {
+                    view.player2Turn(false);
+                    view.player1Turn(true);
+                } else {
+                    view.player1Turn(false);
+                    view.player2Turn(true);
+                }
+                if (model.checkGameOver()) {
+                    if (model.getStonesInP1Mancala() > model.getStonesInP2Mancala())
+                        JOptionPane.showMessageDialog(view.getFrame(), "Player 1 Wins.");
+                    else if (model.getStonesInP2Mancala() > model.getStonesInP1Mancala())
+                        JOptionPane.showMessageDialog(view.getFrame(), "Player 2 Wins.");
+                    else
+                        JOptionPane.showMessageDialog(view.getFrame(), "Draw Game.");
+                }
+            }
+
+        });
+
+        view.addQuitActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
     }
-    
+
     public String setStones(int number){
         String stones = "";
         for(int i =0; i < number; i++){

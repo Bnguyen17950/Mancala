@@ -23,6 +23,7 @@ public abstract class AbstractStrategy implements BoardStrategy
     private ArrayList<JLabel> pitLabel = new ArrayList<JLabel>();
     private ArrayList<JButton> allButtons = new ArrayList<JButton>();
     private JButton undoButton;
+    private JButton quitButton;
     private JLabel Player1Turn, Player2Turn;
 
 
@@ -42,34 +43,36 @@ public abstract class AbstractStrategy implements BoardStrategy
         insertButtons();
         CreateLabelsForPlayerA();
         undoButton = new JButton("UNDO");
+        quitButton = new JButton("QUIT");
         undoButton.setBounds(10, 500, 75, 75);
+        quitButton.setBounds(1100, 500, 75, 75);
         pnlMancala.add(undoButton);
+        pnlMancala.add(quitButton);
         Player1Turn = new JLabel("Player 1 -->");
         Player2Turn = new JLabel("<-- Player 2 ");
         addPlayerTurns();
-        
+
     }
-    
+
     public void addPlayerTurns()
     {
 
-       Player1Turn.setForeground(Color.red);
-       Player2Turn.setForeground(Color.blue);
-    	Player1Turn.setBounds(450, 300, 100, 100);
+        Player1Turn.setForeground(Color.red);
+        Player2Turn.setForeground(Color.blue);
+        Player1Turn.setBounds(450, 300, 100, 100);
         Player2Turn.setBounds(450, 100, 100, 100);
         pnlMancala.add(Player1Turn);
         pnlMancala.add(Player2Turn);
-        
         Player2Turn.setVisible(false);
     }
 
     public void player1Turn(boolean setter){
-    	
-    	Player1Turn.setVisible(setter);
+
+        Player1Turn.setVisible(setter);
     }
-    
+
     public void player2Turn(boolean setter){
-    	Player2Turn.setVisible(setter);
+        Player2Turn.setVisible(setter);
     }
     public void CreateRowAPits()
     {
@@ -82,7 +85,7 @@ public abstract class AbstractStrategy implements BoardStrategy
             pnlMancala.add(AJButtons.get(i));
             String buttonNumber = "A" + (i + 1);
             AJButtons.get(i).setName(buttonNumber);
-           	//AJButtons.get(i).setText(buttonNumber);
+            //AJButtons.get(i).setText(buttonNumber);
         }
     }
 
@@ -105,7 +108,7 @@ public abstract class AbstractStrategy implements BoardStrategy
             x -= 100;
             String buttonNumber = "B" + (i + 1);
             BJButtons.get(i).setName(buttonNumber);
-       	    //BJButtons.get(i).setText(buttonNumber);
+            //BJButtons.get(i).setText(buttonNumber);
             pnlMancala.add(BJButtons.get(i));
         }
     }
@@ -170,16 +173,23 @@ public abstract class AbstractStrategy implements BoardStrategy
             button.addActionListener(l);
         }
     }
-    
+
     public void addMancalaActionListener(ActionListener l){
-    	for(JButton button: mancala){
-    		button.addActionListener(l);
-    	}
+        for(JButton button: mancala){
+            button.addActionListener(l);
+        }
     }
-    public void addUndoActionListener(ActionListener l){
-    	undoButton.addActionListener(l);
+
+    public void addQuitActionListener(ActionListener l)
+    {
+        quitButton.addActionListener(l);
     }
-    
+
+    public void addUndoActionListener(ActionListener l)
+    {
+        undoButton.addActionListener(l);
+    }
+
     public ArrayList<JButton> getMancala()
     {
         return mancala;
@@ -189,9 +199,9 @@ public abstract class AbstractStrategy implements BoardStrategy
     {
         return playerLabel;
     }
-    
+
     public ArrayList<JButton> getAllButtons(){
-    	return allButtons;
+        return allButtons;
     }
 
     public String setStones(int number){
@@ -201,9 +211,9 @@ public abstract class AbstractStrategy implements BoardStrategy
         }
         return stones;
     }
-    
+
     public JFrame getFrame(){
-    	return frame;
+        return frame;
     }
 }
 
