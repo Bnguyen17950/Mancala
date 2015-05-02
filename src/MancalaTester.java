@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by bryannguyen on 4/13/15.
  */
-public class MancalaTester
+public class MancalaTest
 {
     static JFrame mainFrame;
     static Container pane;
