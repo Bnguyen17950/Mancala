@@ -65,13 +65,6 @@ public class Model
     {
         //Model test = new Model(2);
     }
-	
-    public void undo(){
-    	System.arraycopy(copyPits, 0, pits, 0, pits.length);
-    	counter--;
-    	int previousP1 =  getStonesInP1Mancala();
-    	int previousP2 = getStonesInP1Mancala();
-    }
     
     public void saveState()
     {
