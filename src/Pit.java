@@ -9,7 +9,8 @@ import java.awt.event.ActionListener;
 public class Pit
 {
     private JFrame frame;
-    private JTextArea stoneNumber;
+    private JButton stoneNumber3;
+    private JButton stoneNumber4;
     private JLabel stoneLabel;
     private JButton Enter;
     private Container pane;
@@ -21,47 +22,49 @@ public class Pit
         number = x;
         frame = new JFrame();
         pane = frame.getContentPane();
-        stoneNumber = new JTextArea();
-        stoneLabel = new JLabel("Enter Number of Stones: ");
-        Enter = new JButton("Enter");
+        stoneNumber3 = new JButton("3");
+        stoneNumber4 = new JButton("4");
+        stoneLabel = new JLabel("Select Number of Stones: ");
         pnlStones = new JPanel(null);
         frame.setSize(300, 200);
 
         pane.add(pnlStones);
-        pnlStones.add(stoneNumber);
+        pnlStones.add(stoneNumber3);
         pnlStones.add(stoneLabel);
-        pnlStones.add(Enter);
+        pnlStones.add(stoneNumber4);
 
         stoneLabel.setBounds(20, 20, 250, 50);
-        stoneNumber.setBounds(30, 80, 50, 25);
-        Enter.setBounds(100, 80, 100, 20);
+        stoneNumber3.setBounds(30, 80, 50, 50);
+        stoneNumber4.setBounds(100, 80, 50, 50);
 
         frame.setVisible(true);
         frame.setResizable(false);
 
-        Enter.addActionListener(new Enter_Action());
+        stoneNumber3.addActionListener(new Select_Action_3());
+        stoneNumber4.addActionListener(new Select_Action_4());
 
     }
 
-    public class Enter_Action implements ActionListener
+    public class Select_Action_3 implements ActionListener
     {
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            if(number == 0)
-            {
-                int StonesEntered = Integer.parseInt(stoneNumber.getText());
-                Model model = new Model();
-                model.initiatePits(StonesEntered);
-                Controller c = new Controller(model, new View());
-            }
-            else
-            {
-                int StonesEntered = Integer.parseInt(stoneNumber.getText());
-                Model model = new Model();
-                model.initiatePits(StonesEntered);
-                Controller c = new Controller(model, new View2());
-            }
+            Model model = new Model();
+            model.initiatePits(3);
+            Controller c = new Controller(model, new View());
+
+        }
+    }
+
+    public class Select_Action_4 implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            Model model = new Model();
+            model.initiatePits(4);
+            Controller c = new Controller(model, new View());
         }
     }
 
