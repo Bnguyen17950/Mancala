@@ -48,11 +48,11 @@ public class Controller
              //need to create an if statement to check if game is over
              if(model.checkGameOver()){
             	 if(model.getStonesInP1Mancala() > model.getStonesInP2Mancala())
-                     System.out.println("Player 1 Wins");
+            		 JOptionPane.showMessageDialog(view.getFrame(), "Player 1 Wins.");
                  else if(model.getStonesInP2Mancala() > model.getStonesInP1Mancala())
-                     System.out.println("Player 2 Wins");
+                	 JOptionPane.showMessageDialog(view.getFrame(), "Player 2 Wins.");
                  else
-                     System.out.println("Draw Game");
+                	 JOptionPane.showMessageDialog(view.getFrame(), "Draw Game.");
              }
              else if(model.checkIfValid(pitName)){ 
         		 JOptionPane.showMessageDialog(view.getFrame(), "Invalid Move.");
@@ -76,6 +76,14 @@ public class Controller
                  {
                      view.player1Turn(false);
                      view.player2Turn(true);
+                 }
+                 if(model.checkGameOver()){
+                	 if(model.getStonesInP1Mancala() > model.getStonesInP2Mancala())
+                		 JOptionPane.showMessageDialog(view.getFrame(), "Player 1 Wins.");
+                     else if(model.getStonesInP2Mancala() > model.getStonesInP1Mancala())
+                    	 JOptionPane.showMessageDialog(view.getFrame(), "Player 2 Wins.");
+                     else
+                    	 JOptionPane.showMessageDialog(view.getFrame(), "Draw Game.");
                  }
              }
          }
