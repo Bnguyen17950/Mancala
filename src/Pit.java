@@ -53,12 +53,14 @@ public class Pit
                 Model model = new Model();
                 model.initiatePits(3);
                 Controller c = new Controller(model, new View());
+                frame.dispose();
             }
             else
             {
                 Model model = new Model();
                 model.initiatePits(3);
                 Controller c = new Controller(model, new View2());
+                frame.dispose();
             }
 
         }
@@ -73,12 +75,14 @@ public class Pit
                 Model model = new Model();
                 model.initiatePits(4);
                 Controller c = new Controller(model, new View());
+                frame.dispose();
             }
             else
             {
                 Model model = new Model();
                 model.initiatePits(4);
                 Controller c = new Controller(model, new View2());
+                frame.dispose();
             }
         }
     }

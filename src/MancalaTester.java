@@ -58,6 +58,7 @@ public class MancalaTest
         public void actionPerformed(ActionEvent e)
         {
             Pit p = new Pit(0);
+            mainFrame.dispose();
         }
     }
 
@@ -68,6 +69,7 @@ public class MancalaTest
         public void actionPerformed(ActionEvent e)
         {
             Pit p = new Pit(1);
+            mainFrame.dispose();
         }
     }
 }
