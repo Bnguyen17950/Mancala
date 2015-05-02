@@ -7,6 +7,7 @@ public class Model
     private int previousP1Mancala, previousP2Mancala;
     private boolean gameOver;
     private int counter;
+    private int counter2;
     private Player player1;
     private Player player2;
 
@@ -18,6 +19,7 @@ public class Model
         copyPits = new int[12];
         boolean gameOver = false;
         counter = 0;
+        counter2= 0;
         player1 = new Player();
         player2 = new Player();
         
@@ -65,12 +67,13 @@ public class Model
     {
         //Model test = new Model(2);
     }
-
+    
     public void saveState()
     {
      System.arraycopy(pits, 0, copyPits, 0, copyPits.length);
      previousP1Mancala = getStonesInP1Mancala();
      previousP2Mancala = getStonesInP2Mancala();
+     counter2 = counter;
     }
     
     public void restoreState()
@@ -78,7 +81,7 @@ public class Model
      System.arraycopy(copyPits, 0, pits, 0, pits.length);
      player1.setStones(previousP1Mancala);
      player2.setStones(previousP2Mancala);
-     counter--;
+     counter = counter2;
     }
     public void pickPitNumber(String pit)
     {
