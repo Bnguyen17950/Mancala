@@ -50,7 +50,4 @@ public class View extends AbstractStrategy
             pnlMancala.add(getPlayerLabel().get(i));
         }
     }
-
-
-
 }

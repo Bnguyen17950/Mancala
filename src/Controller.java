@@ -7,16 +7,20 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
- * Created by bryannguyen on 4/13/15.
- */
+*	Manipulates the data structure within the Model when user	
+*	interaction is received
+*/
 public class Controller
 {
-    //    /*
-    //update information (Contains all the listeners)
     private int counter;
     private Model model;
     private BoardStrategy view;
 
+	/**
+	*	Creates a Controller to interact with the data Model and View	
+	*	@param model The model to manipulate
+	*	@param view The view to display the data on
+	*/
     public Controller(final Model model, final AbstractStrategy view)
     {
         this.model = model;
@@ -26,7 +30,7 @@ public class Controller
         view.setRowBPits(model.getStonesInPit(0));
 
         this.view.addMancalaActionListener(new ActionListener() {
-
+			
             public void actionPerformed(ActionEvent e) {
                 String mancalaName = ((JButton) e.getSource()).getName();
                 if (mancalaName.equals("playerA")) {
@@ -85,19 +89,13 @@ public class Controller
 
             @Override
             public void actionPerformed(ActionEvent e) {
-	
-				System.out.println("P1 count = " + model.getP1UndoCount());
-				System.out.println("P2 count = " + model.getP2UndoCount());
-				
 				if(model.getCounter() % 2 == 1 && model.getP1UndoCount() >= 3)
 				{
-					System.out.println(model.getCounter());
 					JOptionPane.showMessageDialog(view.getFrame(), "Maximum Undo limit reached.");
 					return;
 				}
 				else if(model.getCounter() % 2 == 0 && model.getP2UndoCount() >= 3)
 				{
-					System.out.println(model.getCounter());
 					JOptionPane.showMessageDialog(view.getFrame(), "Maximum Undo limit reached.");
 					return;
 				}
@@ -125,15 +123,10 @@ public class Controller
                         JOptionPane.showMessageDialog(view.getFrame(), "Draw Game.");
                 }
 				
-				//model.undoOccured();
-				System.out.println(model.getCounter());
 				if(model.getCounter() % 2 == 0)
 					model.addP1Undo();
 				else
 					model.addP2Undo();
-				
-				System.out.println("going out P1 count = " + model.getP1UndoCount());
-				System.out.println("going out P2 count = " + model.getP2UndoCount());
             }
 
         });
@@ -146,7 +139,14 @@ public class Controller
         });
     }
 
-    public String setStones(int number){
+	/**
+	*	Creates a String containing asterisks to represent
+	*	the number of stones
+	*	@param number The number of stones
+	*	@return A string representing the stones
+	*/
+    public String setStones(int number)
+	{
         String stones = "";
         for(int i =0; i < number; i++){
             stones += "*";

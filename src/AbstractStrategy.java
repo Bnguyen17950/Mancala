@@ -74,6 +74,7 @@ public abstract class AbstractStrategy implements BoardStrategy
     public void player2Turn(boolean setter){
         Player2Turn.setVisible(setter);
     }
+   
     public void CreateRowAPits()
     {
         //creates row of A pits
@@ -85,7 +86,6 @@ public abstract class AbstractStrategy implements BoardStrategy
             pnlMancala.add(AJButtons.get(i));
             String buttonNumber = "A" + (i + 1);
             AJButtons.get(i).setName(buttonNumber);
-            //AJButtons.get(i).setText(buttonNumber);
         }
     }
 
@@ -108,7 +108,6 @@ public abstract class AbstractStrategy implements BoardStrategy
             x -= 100;
             String buttonNumber = "B" + (i + 1);
             BJButtons.get(i).setName(buttonNumber);
-            //BJButtons.get(i).setText(buttonNumber);
             pnlMancala.add(BJButtons.get(i));
         }
     }
