@@ -4,10 +4,12 @@
 public class Player
 {
     private int stonesInMancala;
+	private int undoCounter;
 
     public Player()
     {
         setStones(0);
+		undoCounter = 0;
     }
 
     public void setStones(int n)
@@ -24,4 +26,14 @@ public class Player
     {
         return stonesInMancala;
     }
+	
+	public int getUndoCounter()
+	{
+		return undoCounter;
+	}
+	
+	public void addUndo()
+	{
+		undoCounter++;
+	}
 }
