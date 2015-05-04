@@ -4,8 +4,10 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+
 /**
- * Created by bryannguyen on 4/24/15.
+ * @author Kevin, Bryan, Nam
+ *Abstract layout of the BoardStrategy. Contains methods that are the same in both view1 and view2 as well as methods from BoardStrategy.
  */
 public abstract class AbstractStrategy implements BoardStrategy
 {
@@ -27,6 +29,9 @@ public abstract class AbstractStrategy implements BoardStrategy
     private JLabel Player1Turn, Player2Turn;
 
 
+    /**
+     *Creates an instance of the board
+     */
     public AbstractStrategy()
     {
         //prepare frame
@@ -54,6 +59,9 @@ public abstract class AbstractStrategy implements BoardStrategy
 
     }
 
+    /**
+     * Adds the player turn label onto the frame
+     */
     public void addPlayerTurns()
     {
 
@@ -66,14 +74,23 @@ public abstract class AbstractStrategy implements BoardStrategy
         Player2Turn.setVisible(false);
     }
 
+    /**
+     * Displays player1 turn onto the board
+     * @param setter boolean to turn off/on the label
+     */
     public void player1Turn(boolean setter){
 
         Player1Turn.setVisible(setter);
     }
 
+    /**
+     * Displays player2 turn onto the board
+     * @param setter boolean to turn off/on the label
+     */
     public void player2Turn(boolean setter){
         Player2Turn.setVisible(setter);
     }
+    
     public void CreateRowAPits()
     {
         //creates row of A pits
@@ -85,10 +102,13 @@ public abstract class AbstractStrategy implements BoardStrategy
             pnlMancala.add(AJButtons.get(i));
             String buttonNumber = "A" + (i + 1);
             AJButtons.get(i).setName(buttonNumber);
-            //AJButtons.get(i).setText(buttonNumber);
         }
     }
 
+    /**
+     * fills in player A's pits with the set number of stones
+     * @param numStones sets the number of stones per pit
+     */
     public void setRowAPits (int numStones)
     {
         for (int i = 0; i < 6; i++)
@@ -96,6 +116,20 @@ public abstract class AbstractStrategy implements BoardStrategy
             int numOfStones = (numStones);
             String buttonNumber = setStones(numOfStones);
             AJButtons.get(i).setText(buttonNumber);
+        }
+    }
+    
+    /**
+     * fills in player B's pits with the set number of stones
+     * @param numStones numStones sets the number of stones per pit
+     */
+    public void setRowBPits (int numStones)
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            int numOfStones = (numStones);
+            String buttonNumber = setStones(numOfStones);
+            BJButtons.get(i).setText(buttonNumber);
         }
     }
 
@@ -113,15 +147,7 @@ public abstract class AbstractStrategy implements BoardStrategy
         }
     }
 
-    public void setRowBPits (int numStones)
-    {
-        for (int i = 0; i < 6; i++)
-        {
-            int numOfStones = (numStones);
-            String buttonNumber = setStones(numOfStones);
-            BJButtons.get(i).setText(buttonNumber);
-        }
-    }
+   
 
     public void insertButtons() {
         //inserts all the buttons into one arraylist
@@ -180,6 +206,10 @@ public abstract class AbstractStrategy implements BoardStrategy
         }
     }
 
+    /**
+     * Adds an action listener to the quit button
+     * @param l the action listener to be added
+     */
     public void addQuitActionListener(ActionListener l)
     {
         quitButton.addActionListener(l);
@@ -190,20 +220,37 @@ public abstract class AbstractStrategy implements BoardStrategy
         undoButton.addActionListener(l);
     }
 
+    /**
+     * returns an arraylist that holds both playerA and playerB's mancala
+     * @return an arraylist that holds both playerA and playerB's mancala
+     */
     public ArrayList<JButton> getMancala()
     {
         return mancala;
     }
 
+    /**
+     * returns an arraylist that holds both playerA and playerB's mancala label
+     * @return an arraylist that holds both playerA and playerB's mancala label
+     */
     public ArrayList<JLabel> getPlayerLabel()
     {
         return playerLabel;
     }
 
+    /**
+     * gets the arraylist that holds playerA and playerB's pits
+     * @return the arraylist that holds playerA and playerB's pits
+     */
     public ArrayList<JButton> getAllButtons(){
         return allButtons;
     }
 
+    /**
+     * Takes in an integer value and returns the number of asterisks for the value
+     * @param number the number of asterisks to be returns
+     * @return a number of asterisks
+     */
     public String setStones(int number){
         String stones = "";
         for(int i =0; i < number; i++){
@@ -212,6 +259,10 @@ public abstract class AbstractStrategy implements BoardStrategy
         return stones;
     }
 
+    /**
+     * returns the frame of the layout
+     * @return the frame of the layout
+     */
     public JFrame getFrame(){
         return frame;
     }

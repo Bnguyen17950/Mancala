@@ -3,8 +3,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 /**
- * Created by bryannguyen on 4/29/15.
+ * A frame that asks the user how many stones to put in each pit in the beginning of the game
+ * @author Kevin, Bryan, Nam
+ *
  */
 public class Pit
 {
@@ -16,6 +19,10 @@ public class Pit
     private JPanel pnlStones;
     private int selection;
 
+    /**
+     * Creates a pit object that displays how many stones to put in each pit in the beginning of the game
+     * @param x the selection for view1 or view2. x equals 0 means the user selected view1. x equals 1 means the user selected view2.
+     */
     public Pit(int x)
     {
         frame = new JFrame();
@@ -44,6 +51,10 @@ public class Pit
 
     }
 
+    /**
+     * @author Kevin, Bryan, Nam
+     *Action listener for selecting 3 stones. The program will then run with the configured layout and stones set.
+     */
     public class Select_Action_3 implements ActionListener
     {
         @Override
@@ -66,6 +77,10 @@ public class Pit
         }
     }
 
+    /**
+     * @author Kevin, Bryan, Nam
+     *Action listener for selecting 4 stones. The program will then run with the configured layout and stones set.
+     */
     public class Select_Action_4 implements ActionListener
     {
         @Override

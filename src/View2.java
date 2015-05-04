@@ -3,8 +3,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+
 /**
- * Created by bryannguyen on 4/24/15.
+ * @author Kevin, Bryan, Nam
+ *Second layout of the mancala board
+ *
  */
 public class View2 extends AbstractStrategy
 {

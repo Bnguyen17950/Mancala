@@ -4,7 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by bryannguyen on 4/13/15.
+ * @author Kevin, Bryan, Nam
+ *Creates the opening frame that gives the user options for View1 or View2
  */
 public class MancalaTest
 {
@@ -52,6 +53,10 @@ public class MancalaTest
         View2.addActionListener(new View2Action());
     }
 
+    /**
+     * @author Kevin, Bryan, Nam
+     *Action listener for when the user clicks on view1. Displays the second frame to ask for the number of stones
+     */
     static class View1Action implements ActionListener
     {
         @Override
@@ -62,6 +67,10 @@ public class MancalaTest
         }
     }
 
+    /**
+     * @author Kevin, Bryan, Nam
+     *Action listener for when the user clicks on view2. Displays the second frame to ask for the number of stones
+     */
     static class View2Action implements ActionListener
     {
 
