@@ -1,3 +1,5 @@
+
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -90,11 +92,7 @@ public abstract class AbstractStrategy implements BoardStrategy
     public void player2Turn(boolean setter){
         Player2Turn.setVisible(setter);
     }
-<<<<<<< HEAD
     
-=======
-   
->>>>>>> origin/master
     public void CreateRowAPits()
     {
         //creates row of A pits
@@ -146,6 +144,7 @@ public abstract class AbstractStrategy implements BoardStrategy
             x -= 100;
             String buttonNumber = "B" + (i + 1);
             BJButtons.get(i).setName(buttonNumber);
+            //BJButtons.get(i).setText(buttonNumber);
             pnlMancala.add(BJButtons.get(i));
         }
     }
