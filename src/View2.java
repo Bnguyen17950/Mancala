@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 
 
 /**
- * @author Kevin, Bryan, Nam
+ * 
  *Second layout of the mancala board
- *
+ *@author Kevin, Bryan, Nam
  */
 public class View2 extends AbstractStrategy
 {

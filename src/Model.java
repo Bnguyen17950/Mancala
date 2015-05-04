@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 /**
 *	Data structure representing the Mancala board game
+*@author Kevin, Bryan, Nam
 */
 public class Model
 {

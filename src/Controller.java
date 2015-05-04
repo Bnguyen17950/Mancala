@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 /**
 *	Manipulates the data structure within the Model when user	
 *	interaction is received
+*@author Kevin, Bryan, Nam
 */
 public class Controller
 {

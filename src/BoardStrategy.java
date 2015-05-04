@@ -2,6 +2,7 @@ import java.awt.event.ActionListener;
 
 /**
  * Created by bryannguyen on 4/24/15.
+ * @author Kevin, Bryan, Nam
  */
 public interface BoardStrategy
 {

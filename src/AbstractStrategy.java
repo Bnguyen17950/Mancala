@@ -8,8 +8,9 @@ import java.util.ArrayList;
 
 
 /**
- * @author Kevin, Bryan, Nam
+ * 
  *Abstract layout of the BoardStrategy. Contains methods that are the same in both view1 and view2 as well as methods from BoardStrategy.
+ * @author Kevin, Bryan, Nam
  */
 public abstract class AbstractStrategy implements BoardStrategy
 {

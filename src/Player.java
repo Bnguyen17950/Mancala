@@ -1,6 +1,7 @@
 /**
 *	A player in a game of Mancala. Each player knows how many stones are in their
 *	Mancala at any given time and how many times they have used the Undo button
+*@author Kevin, Bryan, Nam
 */
 public class Player
 {

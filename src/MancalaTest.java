@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @author Kevin, Bryan, Nam
  *Creates the opening frame that gives the user options for View1 or View2
+ *@author Kevin, Bryan, Nam
  */
 public class MancalaTest
 {

@@ -10,8 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * @author Kevin, Bryan, Nam
  *First layout of the mancala board
+ *@author Kevin, Bryan, Nam
  */
 public class View extends AbstractStrategy
 {
