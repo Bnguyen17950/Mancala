@@ -53,8 +53,8 @@ public abstract class AbstractStrategy implements BoardStrategy
         quitButton.setBounds(1100, 500, 75, 75);
         pnlMancala.add(undoButton);
         pnlMancala.add(quitButton);
-        Player1Turn = new JLabel("Player 1 -->");
-        Player2Turn = new JLabel("<-- Player 2 ");
+        Player1Turn = new JLabel("Player A -->");
+        Player2Turn = new JLabel("<-- Player B ");
         addPlayerTurns();
 
     }

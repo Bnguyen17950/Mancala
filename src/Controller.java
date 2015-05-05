@@ -52,9 +52,9 @@ public class Controller
                 //need to create an if statement to check if game is over
                 if (model.checkGameOver()) {
                     if (model.getStonesInP1Mancala() > model.getStonesInP2Mancala())
-                        JOptionPane.showMessageDialog(view.getFrame(), "Player 1 Wins.");
+                        JOptionPane.showMessageDialog(view.getFrame(), "Player A Wins.");
                     else if (model.getStonesInP2Mancala() > model.getStonesInP1Mancala())
-                        JOptionPane.showMessageDialog(view.getFrame(), "Player 2 Wins.");
+                        JOptionPane.showMessageDialog(view.getFrame(), "Player B Wins.");
                     else
                         JOptionPane.showMessageDialog(view.getFrame(), "Draw Game.");
                 } else if (!model.checkIfValid(pitName)) {
