@@ -16,10 +16,7 @@ public abstract class AbstractStrategy implements BoardStrategy
 {
     private JFrame frame;
     final Container pane;
-    private DefaultTableModel TableModel;
     final JPanel pnlMancala;
-    private JButton mancalaA;
-    private JButton mancalaB;
 
     private ArrayList<JButton> AJButtons = new ArrayList<JButton>();
     private ArrayList<JButton> BJButtons = new ArrayList<JButton>();
